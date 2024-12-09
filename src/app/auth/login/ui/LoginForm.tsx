@@ -1,30 +1,31 @@
+'use client';
+
 import { authenticate } from "@/actions";
 import Link from "next/link";
-import { useActionState } from "react";
+import { useFormState } from "react-dom";
 
 export const LoginForm = () => {
-  const [errorMessage, formAction, isPending] = useActionState(
-    authenticate,
-    undefined
-  );
+
+    const [state, dispatch] = useFormState(authenticate, undefined);
+    console.log({state});
 
   return (
-    <form action={formAction} className="flex flex-col">
+    <form action={ dispatch } className="flex flex-col">
       <label htmlFor="email">Correo electrónico</label>
       <input
         className="px-5 py-2 border bg-gray-200 rounded mb-5"
         type="email"
+        name="email"
       />
 
       <label htmlFor="email">Contraseña</label>
       <input
         className="px-5 py-2 border bg-gray-200 rounded mb-5"
         type="password"
+        name="password"
       />
 
-      <button type="submit" className="btn-primary">
-        Ingresar
-      </button>
+      <button type="submit" className="btn-primary">Ingresar</button>
 
       {/* divisor l ine */}
       <div className="flex items-center my-5">

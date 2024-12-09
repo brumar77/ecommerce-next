@@ -24,8 +24,6 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 
         const { email, password } = parsedCredentials.data;
 
-        console.log({ email, password });
-
         //buscar el correo
 
         //comparar las contrasenas
