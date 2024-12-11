@@ -9,11 +9,18 @@ export async function authenticate(
 ) {
   try {
     // await sleep(3);
-    await signIn("credentials", Object.fromEntries(formData));
+    await signIn("credentials", {
+      ...Object.fromEntries(formData),
+      redirect: false,
+    });
+
+    return "Sucess"
+
   } catch (error) {
-    if ((error as Error).message.includes("CredentialsSignin")) {
+
+    if ((error as any).type === "CredentialsSignin") {
       return "CredentialsSignin";
     }
-    throw error;
+    return "Error desconocido";
   }
 }

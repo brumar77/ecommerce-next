@@ -3,14 +3,21 @@
 import { authenticate } from "@/actions";
 import clsx from "clsx";
 import Link from "next/link";
+import { useEffect } from "react";
 import { useFormStatus } from "react-dom";
 import { useFormState } from "react-dom";
 import { IoInformationOutline } from "react-icons/io5";
 
 export const LoginForm = () => {
   const [state, dispatch] = useFormState(authenticate, undefined);
-  console.log({ state });
 
+  useEffect(() => {
+    
+  
+
+  }, [state])
+  
+  
   return (
     <form action={dispatch} className="flex flex-col">
       <label htmlFor="email">Correo electrónico</label>
