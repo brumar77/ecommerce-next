@@ -14,7 +14,7 @@ export async function authenticate(
       redirect: false,
     });
 
-    return "Sucess"
+    return "Success"
 
   } catch (error) {
 

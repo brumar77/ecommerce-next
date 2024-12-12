@@ -3,6 +3,7 @@
 import { authenticate } from "@/actions";
 import clsx from "clsx";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { useFormStatus } from "react-dom";
 import { useFormState } from "react-dom";
@@ -10,8 +11,13 @@ import { IoInformationOutline } from "react-icons/io5";
 
 export const LoginForm = () => {
   const [state, dispatch] = useFormState(authenticate, undefined);
+  const router = useRouter();
 
   useEffect(() => {
+    if(state === "Success") {
+     //redireccionar al home 
+     router.replace("/");
+    }
     
   
 
@@ -39,7 +45,7 @@ export const LoginForm = () => {
         aria-live="polite"
         aria-atomic="true"
       >
-        {state === "CredentialSignin" && (
+        {state === "CredentialsSignin" && (
           <div className="flex flex-row mb-2">
             <IoInformationOutline className="h-5 w-5 text-red-500" />
             <p className="text-sm text-red-500">Invalid credentials</p>
