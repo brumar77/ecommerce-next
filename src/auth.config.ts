@@ -13,6 +13,31 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     error: "/auth/error",
     verifyRequest: "/auth/verify-request", // (used for check email message)
   },
+
+
+  callbacks: {
+
+    jwt({ token, user }) {
+      if( user ) {
+        token.data = user;
+      }
+
+      console.log({token,user})
+
+      return token;
+    },
+
+    session({ session, token, user }) {
+      session.user= token.data as any;
+
+      return session;
+
+    },
+  },
+
+
+
+
   providers: [
     Credentials({
       async authorize(credentials) {
@@ -39,8 +64,6 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         //regresar el usuario sin el password
         const { password: _, ...rest } = user;
 
-        console.log({rest})
-        
         return rest;
       },
     }),
