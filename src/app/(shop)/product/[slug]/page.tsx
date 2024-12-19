@@ -1,9 +1,8 @@
 export const revalidate = 604800; //7dias  
 
 import { getProductBySlug } from "@/actions";
-import { ProductMobileSlideshow, ProductSlideshow, QuantitySelector, SizeSelector, StockLabel } from "@/components";
+import { ProductMobileSlideshow, ProductSlideshow, StockLabel } from "@/components";
 import { titleFont } from "@/config/fonts";
-import { get } from "http";
 import { Metadata, ResolvingMetadata } from "next";
 import { notFound } from "next/navigation";
 import { AddToCart } from "./ui/AddToCart";

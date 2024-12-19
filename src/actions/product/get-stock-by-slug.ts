@@ -21,6 +21,7 @@ export const getStockBySlug = async ({ slug }: Props): Promise<number> => {
 
     return stock?.inStock ?? 0;
   } catch (error) {
+    console.log(error);
     return 0;
   }
 };

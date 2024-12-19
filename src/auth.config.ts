@@ -27,7 +27,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       return token;
     },
 
-    session({ session, token, user }) {
+    session({ session, token}) {
       session.user= token.data as any;
 
       return session;

@@ -1,4 +1,5 @@
 import bcryptjs from "bcryptjs";
+import { countries } from "./seed-countries";
 
 interface SeedProduct {
   description: string;
@@ -13,6 +14,11 @@ interface SeedProduct {
   gender: "men" | "women" | "kid" | "unisex";
 }
 
+interface SeedCountry {
+  name: string;
+  id: string;
+}
+
 interface SeedUser {
   email: string;
   password: string;
@@ -24,12 +30,15 @@ type ValidSizes = "XS" | "S" | "M" | "L" | "XL" | "XXL" | "XXXL";
 type ValidTypes = "shirts" | "pants" | "hoodies" | "hats";
 
 interface SeedData {
+  countries: SeedCountry[];
   users: SeedUser[];
   categories: string[];
   products: SeedProduct[];
 }
 
 export const initialData: SeedData = {
+  countries: countries,
+
   users: [
     {
       email: "martin@hola.com",

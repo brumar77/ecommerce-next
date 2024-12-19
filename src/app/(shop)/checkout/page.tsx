@@ -1,4 +1,4 @@
-import {Title } from "@/components";
+import { Title } from "@/components";
 import { initialData } from "@/seed/seed";
 import Image from "next/image";
 import Link from "next/link";
@@ -30,15 +30,11 @@ export default function CheckoutPage() {
                   src={`/products/${product.images[0]}`}
                   width={100}
                   height={100}
-                  style={{
-                    width: "100px",
-                    height: "100px",
-                  }}
                   alt={product.title}
                   className="mr-5 rounded"
                 />
 
-                <div className="">
+                <div>
                   <div>{product.title}</div>
                   <div>{product.price} x 3</div>
                   <p className="font-bold">Subtotal: $ {product.price * 3}</p>
@@ -47,15 +43,15 @@ export default function CheckoutPage() {
             ))}
           </div>
 
-          {/* Checkout */}
+          {/* Resumen */}
           <div className="bg-white rounded-xl shadow-xl p-7">
-            <h2 className="text-2xl mb-2">Direccion de entrega</h2>
+            <h2 className="text-2xl mb-2">Dirección de entrega</h2>
             <div className="mb-10">
               <p className="text-xl">Martin Bruscke</p>
               <p>Av. Siempre viva</p>
               <p>Col centro</p>
-              <p>Alcaldia Cuatemoc</p>
-              <p>Ciudad de Cordoba</p>
+              <p>Alcaldía Cuauhtémoc</p>
+              <p>Ciudad de Córdoba</p>
               <p>CP 123456</p>
               <p>123.123.123</p>
             </div>
@@ -65,29 +61,28 @@ export default function CheckoutPage() {
             <h2 className="text-2xl mb-2">Resumen de orden</h2>
             <div className="grid grid-cols-2">
               <span>No. productos</span>
-              <span className="text-right">3 articulos</span>
+              <span className="text-right">3 artículos</span>
 
               <span>Subtotal </span>
               <span className="text-right">$ 100</span>
 
               <span>Impuestos (15%)</span>
-              <span className="text-right">$ 100</span>
+              <span className="text-right">$ 15</span>
 
               <span className="mt-5 text-2xl">Total</span>
-              <span className="mt-5 text-2xl text-right">$ 100</span>
+              <span className="mt-5 text-2xl text-right">$ 115</span>
             </div>
 
             <div className="mt-5 mb-2 w-full">
               <p className="mb-5">
-                {/* disclaimer */}
-                <span className="text-xs ">
-                  Al hacer click en &quot;Colocar orden&quot;, acepta nuestro{" "}
+                <span className="text-xs">
+                  Al hacer clic en &quot;Colocar orden&quot;, acepta nuestros{" "}
                   <a href="#" className="underline">
-                    terminos y condiciones
+                    términos y condiciones
                   </a>{" "}
                   y{" "}
                   <a href="#" className="underline">
-                    politicas de privacidad
+                    políticas de privacidad
                   </a>
                   .
                 </span>
